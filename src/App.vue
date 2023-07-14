@@ -79,6 +79,7 @@
 
     <div class="row mt-5">
       <Guitarra
+        :key="guitarra.id"
         v-for="guitarra in guitarras"
         @agregar-carrito="agregarCarrito"
         :guitarra="guitarra" />

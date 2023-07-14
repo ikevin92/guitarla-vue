@@ -36,23 +36,28 @@
             <img
               class="img-fluid"
               src="/img/logo.svg"
-              alt="imagen logo" />
+              alt="imagen logo"
+            />
           </a>
         </div>
         <nav
-          class="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
+          class="col-md-6 a mt-5 d-flex align-items-start justify-content-end"
+        >
           <div class="carrito">
             <img
               class="img-fluid"
               src="/img/carrito.png"
-              alt="imagen carrito" />
+              alt="imagen carrito"
+            />
 
             <div
               id="carrito"
-              class="bg-white p-3">
+              class="bg-white p-3"
+            >
               <p
                 v-if="carrito.length <= 0"
-                class="text-center m-0">
+                class="text-center m-0"
+              >
                 El carrito esta vacío
               </p>
 
@@ -68,12 +73,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="producto in carrito">
+                    <tr
+                      v-for="producto in carrito"
+                      :key="producto.id"
+                    >
                       <td>
                         <img
                           class="img-fluid"
                           :src="'/img/' + producto.imagen + '.jpg'"
-                          :alt="'imagen guitarra' + producto.nombre" />
+                          :alt="'imagen guitarra' + producto.nombre"
+                        />
                       </td>
                       <td>{{ producto.nombre }}</td>
                       <td class="fw-bold">${{ producto.precio }}</td>
@@ -81,14 +90,16 @@
                         <button
                           type="button"
                           @click="$emit('decrementar-cantidad', producto.id)"
-                          class="btn btn-dark">
+                          class="btn btn-dark"
+                        >
                           -
                         </button>
                         {{ producto.cantidad }}
                         <button
                           type="button"
                           @click="$emit('incrementar-cantidad', producto.id)"
-                          class="btn btn-dark">
+                          class="btn btn-dark"
+                        >
                           +
                         </button>
                       </td>
@@ -96,7 +107,8 @@
                         <button
                           @click="$emit('eliminar-producto', producto.id)"
                           class="btn btn-danger"
-                          type="button">
+                          type="button"
+                        >
                           X
                         </button>
                       </td>
@@ -109,7 +121,8 @@
                 </p>
                 <button
                   @click="$emit('vaciar-carrito')"
-                  class="btn btn-dark w-100 mt-3 p-2">
+                  class="btn btn-dark w-100 mt-3 p-2"
+                >
                   Vaciar Carrito
                 </button>
               </div>
@@ -129,7 +142,8 @@
           <button
             type="button"
             @click="$emit('agregar-carrito', guitarra)"
-            class="btn fs-4 bg-primary text-white py-2 px-5">
+            class="btn fs-4 bg-primary text-white py-2 px-5"
+          >
             Agregar al Carrito
           </button>
         </div>
@@ -139,7 +153,8 @@
     <img
       class="header-guitarra"
       src="/img/header_guitarra.png"
-      alt="imagen header" />
+      alt="imagen header"
+    />
   </header>
 </template>
 
